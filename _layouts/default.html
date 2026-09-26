@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <p class="tagline">{{ site.tagline }}</p>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">Projects</a>
+        <a href="{{ '/guides/' | relative_url }}">Guides</a>
+        <a href="{{ '/principles/' | relative_url }}">Principles</a>
+        <a href="{{ '/contributing/' | relative_url }}">Contribute</a>
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Content licensed <a href="{{ '/LICENSE-CONTENT' | relative_url }}">CC BY-SA 4.0</a>.
+        Site code licensed <a href="{{ '/LICENSE-CODE' | relative_url }}">AGPL-3.0-or-later</a>.
+        Fork it, remix it, keep it open.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
