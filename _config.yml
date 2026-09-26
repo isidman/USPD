@@ -49,8 +49,9 @@ exclude:
   - Gemfile.lock
   - vendor/
   - .bundle/
-  # toolshed/ is a standalone Go+TypeScript application living in this
-  # repo, not site content — it has its own README instead of a rendered
-  # page here.
+  # toolshed/ and meshfeed/ are standalone Go+TypeScript applications
+  # living in this repo, not site content — each has its own README
+  # instead of a rendered page here.
   - toolshed/
+  - meshfeed/
 
