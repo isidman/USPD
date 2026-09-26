@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>deltos engine</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; max-width: 30rem; margin: 2rem auto; padding: 0 1rem; }
+    .balance { font-size: 2rem; font-weight: 700; }
+    .balance.negative { color: #a02020; }
+    .balance.positive { color: #2a7a2a; }
+    fieldset { border: 1px solid #ccc; border-radius: 6px; margin-bottom: 1rem; }
+    label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    input[type="number"], input[type="text"], select { width: 100%; box-sizing: border-box; }
+    .item { border-top: 1px solid #eee; padding: 0.5rem 0; display: flex; justify-content: space-between; }
+    .meta { color: #666; font-size: 0.85rem; }
+    .projection { background: #f7f7f7; border-radius: 6px; padding: 0.75rem 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>deltos</h1>
+  <p>Distilled reference implementation of the ledger/decay engine — see <code>BLUEPRINT.md</code>.</p>
+  <div id="app">Loading…</div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
