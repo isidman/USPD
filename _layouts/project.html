@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article>
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    <span class="badge">{{ page.status }}</span>
+    <span class="badge">{{ page.category }}</span>
+    {% if page.license %}<span class="badge">{{ page.license }}</span>{% endif %}
+  </p>
+
+  {% if page.tagline %}<p><em>{{ page.tagline }}</em></p>{% endif %}
+
+  {{ content }}
+
+  {% if page.tech_stack %}
+  <h2>Tech stack</h2>
+  <ul>
+    {% for item in page.tech_stack %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if page.principles %}
+  <h2>Principles checklist</h2>
+  <ul>
+    {% for pair in page.principles %}
+      <li>{{ pair[0] | replace: "_", " " | capitalize }}: {% if pair[1] %}yes{% else %}not yet{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h2>Links</h2>
+  <ul>
+    {% if page.repo_url %}<li><a href="{{ page.repo_url }}">Source repository</a></li>{% endif %}
+    {% if page.docs_url %}<li><a href="{{ page.docs_url }}">Documentation</a></li>{% endif %}
+  </ul>
+</article>

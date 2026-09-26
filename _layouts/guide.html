@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article>
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    {% if page.difficulty %}<span class="badge">{{ page.difficulty }}</span>{% endif %}
+  </p>
+
+  {% if page.summary %}<p><em>{{ page.summary }}</em></p>{% endif %}
+
+  {{ content }}
+
+  {% if page.related_projects %}
+  <h2>Related projects</h2>
+  <ul>
+    {% for slug in page.related_projects %}
+      <li><a href="{{ '/projects/' | append: slug | append: '/' | relative_url }}">{{ slug }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</article>

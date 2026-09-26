@@ -1,0 +1,52 @@
+title: USPD
+tagline: "An open platform for building solarpunk-oriented open source software"
+description: >
+  A community-maintained catalog of guides and projects for building
+  solarpunk-aligned open source software — tools designed to serve people
+  and ecosystems, built to be repaired, reused, and remixed rather than
+  replaced.
+baseurl: ""
+url: ""
+
+# The github-pages gem defaults this to jekyll-theme-primer if unset,
+# pulling in a theme's full Sass pipeline we don't use. This site has its
+# own layouts and plain CSS (assets/css/style.css) — no theme needed.
+theme: null
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  guides:
+    output: true
+    permalink: /guides/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+markdown: kramdown
+
+# templates/ holds raw skeletons contributors copy — not site pages.
+# CLAUDE.md is engineering instructions for contributors/AI, not a page
+# (its content is published for readers at /principles/ instead).
+exclude:
+  - templates/
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
+
