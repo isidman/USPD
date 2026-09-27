@@ -1,0 +1,49 @@
+name: meshfeed
+
+on:
+  pull_request:
+    paths:
+      - "meshfeed/**"
+      - ".github/workflows/meshfeed.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "meshfeed/**"
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: meshfeed
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - run: go build ./...
+      - run: go vet ./...
+      - name: gofmt
+        run: |
+          out="$(gofmt -l .)"
+          if [ -n "$out" ]; then
+            echo "$out"
+            echo "::error::gofmt found unformatted files"
+            exit 1
+          fi
+      - run: go test ./...
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: meshfeed/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - run: npx tsc -b --noEmit
+      - run: npm test
+      - run: npm run build
