@@ -1,0 +1,7 @@
+# Runtime data files written by the jsonfile storage backend, not source.
+/resources.json
+/loans.json
+
+web/node_modules/
+web/dist/
+web/tsconfig.tsbuildinfo
