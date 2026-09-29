@@ -7,7 +7,9 @@ permalink: /principles/
 
 USPD catalogs and documents software built along Solarpunk lines: technology
 that serves people and ecosystems, designed to be repaired and remixed
-rather than replaced.
+rather than replaced. The 8 rules below are USPD's own answer to *how* to
+build that way — for what Solarpunk itself actually is, as a movement,
+see [Further reading](#further-reading) at the bottom of this page.
 
 They're also the checklist we ask contributors to run a project against
 before cataloging it here (see the `principles` field in a
@@ -97,3 +99,27 @@ repeating it here at the site level:
   currencies like the Chiemgauer) rather than a novel invention.
 
 See each project's own `BLUEPRINT.md` for the full reasoning.
+
+## Further reading
+
+Everything above is USPD's own engineering answer to *how* to build
+Solarpunk software. It isn't where the word "Solarpunk" itself comes
+from. If you want the movement's own account of what it is and why,
+these predate and outrank anything on this page:
+
+- **[Solarpunk: Notes toward a Manifesto](https://hieroglyph.asu.edu/2014/09/solarpunk-notes-toward-a-manifesto/)**
+  (Adam Flynn, 2014) — the essay generally credited with coining and
+  crystallizing the term.
+- **[Solarpunk: A Reference Guide](https://medium.com/solarpunks/solarpunk-a-reference-guide-8bcf18871965)**
+  (Jay Springett, 2017, published on [solarpunks.net](https://solarpunks.net/))
+  — a curated compendium across architecture, technology, and economics
+  (circular and gift economies, alternative currencies, decentralized
+  production) that shaped how the movement talks about itself. Its
+  economics thread is the same lineage `deltos`'s credit system sits in.
+- **[A Solarpunk Manifesto](https://re-des.org/a-solarpunk-manifesto/)**
+  (2019) — a later synthesis explicitly built from the two essays above,
+  and the version most often cited today.
+
+These three are about Solarpunk as a movement — fiction, aesthetics,
+politics, hope. This site is only about one narrow slice of that: how to
+write software that doesn't betray it.
