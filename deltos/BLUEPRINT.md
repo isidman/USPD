@@ -8,6 +8,15 @@ tracking. Name from δέλτος — the ancient Greek writing tablet/ledger.
 Inspired by Solarpunk economics, the Hopamine Green Hackathon, and the
 Integral Collective's federated cooperative economy architecture.
 
+Deltos's whole premise — non-transferable, decaying, cost-visible credits
+instead of money — sits in the same lineage as the alternative-currency and
+gift-economy thread in [Solarpunk: A Reference Guide](https://medium.com/solarpunks/solarpunk-a-reference-guide-8bcf18871965)
+(see "Further reading" on the [principles page](https://isidman.github.io/USPD/principles/#further-reading)).
+That guide catalogs real-world precedents for exactly this kind of
+"economics as commons infrastructure, not a market" thinking; the
+demurrage-currency citation below is this project's own concrete instance
+of it.
+
 The original is a full mobile app (onboarding wizard, dashboard with live
 charts, on-device OCR identity verification, a weighted trust score,
 peer vouching, a community review queue, an 18-article help center, even
@@ -63,8 +72,9 @@ The original spec states this as an architectural constraint: credits
 can't be sent from one person to another. This implementation enforces it
 the same way CLAUDE.md rule 6 recommends handling anything you want to be
 impossible: **there is no transfer method**. `Ledger` in
-`src/engine/ledger.ts` has exactly two operations — `record()` a new
-contribution, and `currentBalance()` to read the total. There is no
+`src/engine/ledger.ts` has one way in — `record()` a new contribution —
+and several read-only ways out: `history()`, `currentBalance()`, and two
+projection helpers. There is no
 `send()`, `spend()`, or `transfer()` anywhere in this package. That's not
 a permission check guarding a capability that exists; the capability
 was simply never written. The most reliable way to prevent an operation
