@@ -34,7 +34,7 @@ flood-relay mechanism (every node relays once, with a hop limit and a
 dedup cache), on a hand-rolled binary wire format sized against LoRa's real
 ~200-byte payload budget.
 
-Like [`toolshed`](/projects/toolshed/), this is a blueprint plus a
+Like [`toolshed`]({{ '/projects/toolshed/' | relative_url }}), this is a blueprint plus a
 complete, tested vertical slice — not a finished product. No real LoRa
 radio was available to test against, so the protocol engine runs against
 a simulated, controllable radio-range model; a real radio driver is a

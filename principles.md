@@ -14,7 +14,7 @@ for open hardware — adapted for software.
 
 They're also the checklist we ask contributors to run a project against
 before cataloging it here (see the `principles` field in a
-[project entry](/contributing/)).
+[project entry]({{ '/contributing/' | relative_url }})).
 
 1. **Repair over replace.** Prefer mature, widely-maintained dependencies.
    A broken or abandoned dependency should be swappable, not a reason to
