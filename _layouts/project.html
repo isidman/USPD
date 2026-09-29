@@ -3,11 +3,7 @@ layout: default
 ---
 <article class="reveal">
   <h1>{{ page.title }}</h1>
-  <p class="meta">
-    <span class="badge" data-status="{{ page.status }}">{{ page.status }}</span>
-    <span class="badge">{{ page.category }}</span>
-    {% if page.license %}<span class="badge">{{ page.license }}</span>{% endif %}
-  </p>
+  <p class="meta">Tags: {{ page.status }}, {{ page.category }}{% if page.license %}, {{ page.license }}{% endif %}</p>
 
   {% if page.tagline %}<p><em>{{ page.tagline }}</em></p>{% endif %}
 

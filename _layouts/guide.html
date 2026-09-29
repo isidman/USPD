@@ -3,9 +3,7 @@ layout: default
 ---
 <article class="reveal">
   <h1>{{ page.title }}</h1>
-  <p class="meta">
-    {% if page.difficulty %}<span class="badge" data-difficulty="{{ page.difficulty }}">{{ page.difficulty }}</span>{% endif %}
-  </p>
+  {% if page.difficulty %}<p class="meta">Tags: {{ page.difficulty }}</p>{% endif %}
 
   {% if page.summary %}<p><em>{{ page.summary }}</em></p>{% endif %}
 

@@ -12,7 +12,7 @@ and lessons learned.
 {% for guide in guides %}
 <div class="card reveal">
   <h3><a href="{{ guide.url | relative_url }}">{{ guide.title }}</a></h3>
-  <p class="meta">{% if guide.difficulty %}<span class="badge" data-difficulty="{{ guide.difficulty }}">{{ guide.difficulty }}</span>{% endif %}</p>
+  {% if guide.difficulty %}<p class="meta">Tags: {{ guide.difficulty }}</p>{% endif %}
   <p>{{ guide.summary }}</p>
 </div>
 {% else %}

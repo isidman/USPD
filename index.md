@@ -12,10 +12,7 @@ modular, common-components-first, and legible to newcomers. See
 {% for project in projects %}
 <div class="card reveal">
   <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-  <p class="meta">
-    <span class="badge" data-status="{{ project.status }}">{{ project.status }}</span>
-    <span class="badge">{{ project.category }}</span>
-  </p>
+  <p class="meta">Tags: {{ project.status }}, {{ project.category }}</p>
   <p>{{ project.tagline }}</p>
 </div>
 {% else %}

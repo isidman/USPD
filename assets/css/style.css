@@ -11,23 +11,6 @@
   --color-border: #e7ead2;
   --max-width: 42rem;
   --radius: 10px;
-
-  /* Status colors follow a seed → sprout → mature → dormant metaphor. */
-  --status-idea-bg: #e4e8ef;
-  --status-idea-fg: #4a5d80;
-  --status-active-bg: #eaf0d2;
-  --status-active-fg: #5d6e35;
-  --status-mature-bg: #d9e0bc;
-  --status-mature-fg: #47542a;
-  --status-archived-bg: #e9e7de;
-  --status-archived-fg: #676557;
-
-  --difficulty-beginner-bg: #eaf0d2;
-  --difficulty-beginner-fg: #5d6e35;
-  --difficulty-intermediate-bg: #f5e9c8;
-  --difficulty-intermediate-fg: #8a6a1f;
-  --difficulty-advanced-bg: #f2ddd3;
-  --difficulty-advanced-fg: #9a4a2f;
 }
 
 /* Dark mode: same hues, re-tuned for a dark background instead of a
@@ -43,22 +26,6 @@
     --color-highlight: #d6e58c;
     --color-muted: #a9a78f;
     --color-border: #343522;
-
-    --status-idea-bg: #26344a;
-    --status-idea-fg: #9fc0e8;
-    --status-active-bg: #2e3a1c;
-    --status-active-fg: #c0d67d;
-    --status-mature-bg: #24301a;
-    --status-mature-fg: #a8c05e;
-    --status-archived-bg: #2b2b22;
-    --status-archived-fg: #ada894;
-
-    --difficulty-beginner-bg: #2e3a1c;
-    --difficulty-beginner-fg: #c0d67d;
-    --difficulty-intermediate-bg: #3f3620;
-    --difficulty-intermediate-fg: #e0c273;
-    --difficulty-advanced-bg: #3d2620;
-    --difficulty-advanced-fg: #e0a288;
   }
 }
 
@@ -161,28 +128,6 @@ a:hover {
   font-size: 0.875rem;
   color: var(--color-muted);
 }
-
-.badge {
-  display: inline-block;
-  background: var(--color-accent-light);
-  color: var(--color-accent);
-  border-radius: 999px;
-  padding: 0.15rem 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-right: 0.35rem;
-}
-
-/* Status/difficulty badges read as color at a glance — a seed (idea) is
-   blue, a sprout (active) is bright green, mature growth is deep green,
-   and archived work fades to gray, the way an actual garden bed would. */
-.badge[data-status="idea"]        { background: var(--status-idea-bg);        color: var(--status-idea-fg); }
-.badge[data-status="active"]      { background: var(--status-active-bg);      color: var(--status-active-fg); }
-.badge[data-status="mature"]      { background: var(--status-mature-bg);      color: var(--status-mature-fg); }
-.badge[data-status="archived"]    { background: var(--status-archived-bg);    color: var(--status-archived-fg); }
-.badge[data-difficulty="beginner"]     { background: var(--difficulty-beginner-bg);     color: var(--difficulty-beginner-fg); }
-.badge[data-difficulty="intermediate"] { background: var(--difficulty-intermediate-bg); color: var(--difficulty-intermediate-fg); }
-.badge[data-difficulty="advanced"]     { background: var(--difficulty-advanced-bg);     color: var(--difficulty-advanced-fg); }
 
 footer.site-footer {
   margin-top: 3rem;
