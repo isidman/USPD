@@ -16,5 +16,5 @@ and lessons learned.
   <p>{{ guide.summary }}</p>
 </div>
 {% else %}
-<p>No guides written yet. <a href="/contributing/">Write the first one.</a></p>
+<p>No guides written yet. <a href="{{ '/contributing/' | relative_url }}">Write the first one.</a></p>
 {% endfor %}

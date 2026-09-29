@@ -5,8 +5,13 @@ description: >
   solarpunk-aligned open source software — tools designed to serve people
   and ecosystems, built to be repaired, reused, and remixed rather than
   replaced.
-baseurl: ""
-url: ""
+# This deploys as a GitHub Pages *project* site (the repo isn't named
+# isidman.github.io), which GitHub serves under a subpath — every asset
+# and internal link needs that prefix or it 404s once actually deployed.
+# jekyll-build-pages (.github/workflows/pages.yml) passes no --baseurl
+# flag, so this value is the only place it comes from.
+baseurl: "/USPD"
+url: "https://isidman.github.io"
 
 # The github-pages gem defaults this to jekyll-theme-primer if unset,
 # pulling in a theme's full Sass pipeline we don't use. This site has its

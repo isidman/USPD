@@ -39,6 +39,6 @@ Then open `http://localhost:4000`.
 ## Licensing
 
 By contributing, you agree your writeups (project entries, guides) are
-licensed under [CC BY-SA 4.0](/LICENSE-CONTENT), and any code you
+licensed under [CC BY-SA 4.0]({{ '/LICENSE-CONTENT' | relative_url }}), and any code you
 contribute to the site itself (layouts, config, scripts) is licensed under
-[AGPL-3.0-or-later](/LICENSE-CODE) — matching the rest of the repository.
+[AGPL-3.0-or-later]({{ '/LICENSE-CODE' | relative_url }}) — matching the rest of the repository.

@@ -31,8 +31,8 @@ mechanic worth getting precisely right: `net_credits = labor_hours +
 (materials_kg × 0.5) − (energy_kWh × 0.3) − (co2_kg × 0.2)`, with weekly
 exponential decay preventing accumulation — the same principle behind
 real demurrage currencies like Gesell's Freigeld — and non-transferability
-enforced the way [`toolshed`](/projects/toolshed/) and
-[`meshfeed`](/projects/meshfeed/) enforce their own constraints: by the
+enforced the way [`toolshed`]({{ '/projects/toolshed/' | relative_url }}) and
+[`meshfeed`]({{ '/projects/meshfeed/' | relative_url }}) enforce their own constraints: by the
 capability simply not existing in the code, not by a permission check.
 
 See [`deltos/BLUEPRINT.md`](https://github.com/isidman/USPD/blob/main/deltos/BLUEPRINT.md)
