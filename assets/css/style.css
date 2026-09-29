@@ -1,10 +1,63 @@
 :root {
   --color-bg: #fbf9f3;
+  --color-surface: #ffffff;
   --color-text: #1f2a1f;
   --color-accent: #3a6b35;
   --color-accent-light: #dce8d5;
+  --color-highlight: #8ada29; /* the "solarpunk lime" nod — used sparingly, for hover/focus energy */
   --color-muted: #5b6b57;
+  --color-border: #dce8d5;
   --max-width: 42rem;
+  --radius: 10px;
+
+  /* Status colors follow a seed → sprout → mature → dormant metaphor. */
+  --status-idea-bg: #e4ecf5;
+  --status-idea-fg: #3a5a80;
+  --status-active-bg: #dff2d8;
+  --status-active-fg: #2f6b28;
+  --status-mature-bg: #cfe3c8;
+  --status-mature-fg: #234f1f;
+  --status-archived-bg: #e8e8e4;
+  --status-archived-fg: #6b6b63;
+
+  --difficulty-beginner-bg: #dff2d8;
+  --difficulty-beginner-fg: #2f6b28;
+  --difficulty-intermediate-bg: #f5e9c8;
+  --difficulty-intermediate-fg: #8a6a1f;
+  --difficulty-advanced-bg: #f2ddd3;
+  --difficulty-advanced-fg: #9a4a2f;
+}
+
+/* Dark mode: same hues, re-tuned for a dark background instead of a
+   different palette — a night reader shouldn't feel like they landed on
+   a different site. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14201a;
+    --color-surface: #1b2a22;
+    --color-text: #e9f2e6;
+    --color-accent: #8fd982;
+    --color-accent-light: #2b3d31;
+    --color-highlight: #c8ec5f;
+    --color-muted: #a3b7a8;
+    --color-border: #2b3d31;
+
+    --status-idea-bg: #223347;
+    --status-idea-fg: #9cc0ea;
+    --status-active-bg: #234a24;
+    --status-active-fg: #a9e69c;
+    --status-mature-bg: #1c3a1c;
+    --status-mature-fg: #8fd982;
+    --status-archived-bg: #2a2e29;
+    --status-archived-fg: #a8ada4;
+
+    --difficulty-beginner-bg: #234a24;
+    --difficulty-beginner-fg: #a9e69c;
+    --difficulty-intermediate-bg: #3f3620;
+    --difficulty-intermediate-fg: #e0c273;
+    --difficulty-advanced-bg: #3d2620;
+    --difficulty-advanced-fg: #e0a288;
+  }
 }
 
 * {
@@ -17,7 +70,8 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .wrapper {
@@ -25,44 +79,76 @@ body {
   margin: 0 auto;
 }
 
+h1, h2, h3 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 1.9rem; margin: 0.4em 0 0.5em; }
+h2 { font-size: 1.3rem; margin: 1.6em 0 0.6em; }
+
 header.site-header {
-  padding: 1.5rem 0 1rem;
-  border-bottom: 2px solid var(--color-accent-light);
+  padding: 2rem 0 1.25rem;
+  border-bottom: 2px solid var(--color-border);
   margin-bottom: 2rem;
+  background: radial-gradient(ellipse 120% 100% at 0% 0%, var(--color-accent-light) 0%, transparent 60%);
 }
 
 header.site-header a.site-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--color-accent);
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+header.site-header a.site-title:hover {
+  color: var(--color-highlight);
 }
 
 header.site-header p.tagline {
-  margin: 0.25rem 0 0.75rem;
+  margin: 0.3rem 0 1rem;
   color: var(--color-muted);
+  font-size: 1.05rem;
 }
 
 nav.site-nav a {
-  margin-right: 1rem;
+  margin-right: 1.25rem;
   color: var(--color-accent);
   text-decoration: none;
   font-weight: 600;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-nav.site-nav a:hover {
-  text-decoration: underline;
+nav.site-nav a:hover,
+nav.site-nav a:focus-visible {
+  color: var(--color-highlight);
+  border-bottom-color: var(--color-highlight);
 }
 
 a {
   color: var(--color-accent);
 }
 
+a:hover {
+  color: var(--color-highlight);
+}
+
 .card {
-  border: 1px solid var(--color-accent-light);
-  border-radius: 6px;
-  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.35rem;
   margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.25);
 }
 
 .card h3 {
@@ -79,15 +165,41 @@ a {
   background: var(--color-accent-light);
   color: var(--color-accent);
   border-radius: 999px;
-  padding: 0.1rem 0.6rem;
+  padding: 0.15rem 0.65rem;
   font-size: 0.75rem;
-  margin-right: 0.3rem;
+  font-weight: 600;
+  margin-right: 0.35rem;
 }
+
+/* Status/difficulty badges read as color at a glance — a seed (idea) is
+   blue, a sprout (active) is bright green, mature growth is deep green,
+   and archived work fades to gray, the way an actual garden bed would. */
+.badge[data-status="idea"]        { background: var(--status-idea-bg);        color: var(--status-idea-fg); }
+.badge[data-status="active"]      { background: var(--status-active-bg);      color: var(--status-active-fg); }
+.badge[data-status="mature"]      { background: var(--status-mature-bg);      color: var(--status-mature-fg); }
+.badge[data-status="archived"]    { background: var(--status-archived-bg);    color: var(--status-archived-fg); }
+.badge[data-difficulty="beginner"]     { background: var(--difficulty-beginner-bg);     color: var(--difficulty-beginner-fg); }
+.badge[data-difficulty="intermediate"] { background: var(--difficulty-intermediate-bg); color: var(--difficulty-intermediate-fg); }
+.badge[data-difficulty="advanced"]     { background: var(--difficulty-advanced-bg);     color: var(--difficulty-advanced-fg); }
 
 footer.site-footer {
   margin-top: 3rem;
   padding: 1.5rem 0;
-  border-top: 2px solid var(--color-accent-light);
+  border-top: 2px solid var(--color-border);
   color: var(--color-muted);
   font-size: 0.875rem;
+}
+
+/* --- Progressive-enhancement animation hooks ---
+   Elements marked .reveal are FULLY VISIBLE by default. JS (assets/js/site.js)
+   only ever *adds* a transform/opacity via anime.js if it loaded successfully
+   and the visitor hasn't asked for reduced motion — it never hides content
+   that JS might fail to reveal. See assets/js/site.js for the guard. */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
 }
