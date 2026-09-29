@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <header class="site-header">
+    <header class="site-header reveal">
       <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <p class="tagline">{{ site.tagline }}</p>
       <nav class="site-nav">
@@ -32,5 +32,12 @@
       </p>
     </footer>
   </div>
+
+  <!-- Purely decorative entrance animation. Everything above renders and
+       works with no JS at all; this only adds motion on top, and does
+       nothing if it fails to load or the visitor prefers reduced motion
+       — see assets/js/site.js. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
 </body>
 </html>
